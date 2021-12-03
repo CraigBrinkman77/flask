@@ -1,0 +1,18 @@
+from flask import Flask, render_template
+app = Flask(__name__) 
+
+@app.route('/')       
+def index():
+    return render_template("index.html", color="blue", num=3)
+
+@app.route('/play/<color>/<int:num>')
+def create(color, num):
+    return render_template("index.html", color=color, num=num)
+
+@app.errorhandler(404)
+def check(error):
+    return f"page not found"
+
+if __name__=="__main__":   
+    app.run(debug=True)    
+
