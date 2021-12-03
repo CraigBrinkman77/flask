@@ -1,12 +1,9 @@
 from flask import Flask, render_template
 app = Flask(__name__) 
 
-@app.route('/')       
-def index():
-    return render_template("index.html", color="blue", num=3)
-
-@app.route('/play/<color>/<int:num>')
-def create(color, num):
+@app.route('/')
+@app.route('/<string:color>/<int:num>')
+def create(color="blue", num=3):
     return render_template("index.html", color=color, num=num)
 
 @app.errorhandler(404)

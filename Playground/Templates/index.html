@@ -7,18 +7,28 @@
     <title>Playground</title>
     <style>
         .box{
-            border: 5px, solid, black;
+            border: 5px solid black;
             border-radius: 5px;
             width: 200px;   
             height: 200px;
+            margin: 5px;
             background-color: {{color}};
         }
+        .flex{
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        
     </style>
 </head>
 <body>
+    <div class="flex">
     {% for x in range (0,num) %}
+    
     <div class="box">
     </div>
     {% endfor %}
+    </div>
 </body>
 </html>
